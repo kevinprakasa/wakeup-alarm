@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="8dp">
+
+    <CheckBox
+        android:id="@+id/weekdaysCheck"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginLeft="89dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="WEEKDAYS"
+        android:onClick="onDaysClicked"
+        />
+
+    <CheckBox
+        android:id="@+id/weekendCheck"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="89dp"
+        android:gravity="center"
+        android:onClick="onDaysClicked"
+        android:text="WEEKEND" />
+
+    <CheckBox
+        android:id="@+id/day3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="132dp"
+        android:onClick="onDaysClicked"
+        android:gravity="center"
+        android:text="WEDNESDAY" />
+
+    <CheckBox
+        android:id="@+id/day1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:onClick="onDaysClicked"
+        android:text="MONDAY" />
+
+    <CheckBox
+        android:id="@+id/day2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:onClick="onDaysClicked"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="89dp"
+        android:gravity="center"
+        android:text="TUESDAY" />
+
+    <CheckBox
+        android:id="@+id/day4"
+        android:layout_width="match_parent"
+        android:onClick="onDaysClicked"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="175dp"
+        android:gravity="center"
+        android:text="THURSDAY" />
+
+    <CheckBox
+        android:id="@+id/day5"
+        android:layout_width="match_parent"
+        android:onClick="onDaysClicked"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="215dp"
+        android:gravity="center"
+        android:text="FRIDAY" />
+
+    <CheckBox
+        android:id="@+id/day6"
+        android:layout_width="match_parent"
+        android:onClick="onDaysClicked"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="255dp"
+        android:gravity="center"
+        android:text="SATURDAY" />
+
+    <CheckBox
+        android:id="@+id/day7"
+        android:layout_width="match_parent"
+        android:onClick="onDaysClicked"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="296dp"
+        android:gravity="center"
+        android:text="MONDAY" />
+
+</RelativeLayout>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="8dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginRight="8dp">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#D7DAD2"
+        android:id="@+id/alarmItemContainer"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/alarmTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="0dp"
+            android:text="06 : 30"
+            android:textSize="28sp"
+            app:fontFamily="@font/montserrat" />
+
+        <ImageButton
+            android:id="@+id/alarmEdit"
+            android:layout_width="37dp"
+            android:layout_height="36dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="false"
+            android:layout_marginEnd="7dp"
+            app:srcCompat="@android:drawable/ic_menu_edit"
+            android:layout_marginRight="7dp" />
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
