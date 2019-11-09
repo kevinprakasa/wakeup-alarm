@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AlarmHistoryActivity">
+    tools:context="id.ac.ui.cs.mobileprogramming.kevinprakasa.wakeup.AlarmHistoryActivity">
 
     <TextView
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="29dp"
-        android:text="Alarm History."
+        android:text="@string/alarm_history"
         android:textSize="24sp"
         app:fontFamily="@font/montserrat"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,7 +22,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/alarmHistoryRecycler"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginTop="92dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

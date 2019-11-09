@@ -1,7 +1,39 @@
 <resources>
     <string name="app_name">WakeUp!</string>
-
     <string name="title_activity_create_alarm">CreateAlarmActivity</string>
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="mon">Monday</string>
+    <string name="tue">Tuesday</string>
+    <string name="wed">Wednesday</string>
+    <string name="thu">Thursday</string>
+    <string name="fri">Friday</string>
+    <string name="sat">Saturday</string>
+    <string name="sun">Sunday</string>
+    <string name="mon_short">MON</string>
+    <string name="tue_short">TUE</string>
+    <string name="wed_short">WED</string>
+    <string name="thu_short">THU</string>
+    <string name="fri_short">FRI</string>
+    <string name="sat_short">SAT</string>
+    <string name="sun_short">SUN</string>
+    <string name="weekday">Weekday</string>
+    <string name="weekend">Weekend</string>
+    <string name="today_is">Today is</string>
+    <string name="delete_alarm">Delete Alarm</string>
+    <string name="on">ON</string>
+    <string name="off">OFF</string>
+    <string name="create_alarm">Create Your Alarm.</string>
+    <string name="repeat">Repeat</string>
+    <string name="snoozeable">Snoozeable</string>
+    <string name="alarm_label">Alarm label</string>
+    <string name="alarm_history">Alarm History</string>
+    <string name="stopped">STOPPED</string>
+    <string name="skip">SKIP</string>
+    <string name="snoozed">SNOOZED</string>
+    <string name="_5_mins">5 mins</string>
+    <string name="_10_mins">10 mins</string>
+    <string name="_15_mins">15 mins</string>
+    <string name="_20_mins">20 mins</string>
+    <string name="sorry">Sorry you can\'t edit the day of this alarm</string>
+    <string name="pick_day_alarm">Pick your alarm days</string>
+    <string name="cancel">Cancel</string>
 </resources>

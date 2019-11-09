@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.kp.wakeup">
+    package="id.ac.ui.cs.mobileprogramming.kevinprakasa.wakeup">
 
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
@@ -11,16 +11,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AlarmHistoryActivity"></activity>
-        <activity android:name=".CreateAlarmActivity" />
-        <activity android:name=".AlarmReceiverActivity"/>
+        <activity android:name="id.ac.ui.cs.mobileprogramming.kevinprakasa.wakeup.AlarmHistoryActivity"></activity>
+        <activity android:name="id.ac.ui.cs.mobileprogramming.kevinprakasa.wakeup.CreateAlarmActivity" />
+        <activity android:name="id.ac.ui.cs.mobileprogramming.kevinprakasa.wakeup.AlarmReceiverActivity"/>
 
         <service
-            android:name=".AlarmService"
+            android:name="id.ac.ui.cs.mobileprogramming.kevinprakasa.wakeup.AlarmService"
             android:enabled="true"
             android:exported="true" />
 
-        <activity android:name=".MainActivity">
+        <activity android:name="id.ac.ui.cs.mobileprogramming.kevinprakasa.wakeup.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,9 +28,9 @@
             </intent-filter>
         </activity>
 
-        <receiver android:name=".AlarmReceiver" />
-        <provider android:name=".ContentProvider.AlarmContentProvider"
-            android:authorities="com.kp.wakeup.ContentProvider.AlarmContentProvider"/>
+        <receiver android:name="id.ac.ui.cs.mobileprogramming.kevinprakasa.wakeup.AlarmReceiver" />
+        <provider android:name="id.ac.ui.cs.mobileprogramming.kevinprakasa.wakeup.ContentProvider.AlarmContentProvider"
+            android:authorities="id.ac.ui.cs.mobileprogramming.kevinprakasa.wakeup.ContentProvider.AlarmContentProvider"/>
 
         <meta-data
             android:name="preloaded_fonts"

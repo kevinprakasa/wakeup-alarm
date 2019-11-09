@@ -3,6 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
  <item
      android:id="@+id/delete_alarm"
-     android:title="Delete alarm"
+     android:title="@string/delete_alarm"
      app:showAsAction="always"/>
 </menu>

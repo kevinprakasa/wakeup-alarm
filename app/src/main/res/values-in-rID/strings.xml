@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">WakeUp!</string>
+    <string name="title_activity_create_alarm">CreateAlarmActivity</string>
+    <string name="mon">Senin</string>
+    <string name="tue">Selasa</string>
+    <string name="wed">Rabu</string>
+    <string name="thu">Kamis</string>
+    <string name="fri">Jumat</string>
+    <string name="sat">Sabtu</string>
+    <string name="sun">Minggu</string>
+    <string name="mon_short">SEN</string>
+    <string name="tue_short">SEL</string>
+    <string name="wed_short">RAB</string>
+    <string name="thu_short">KAM</string>
+    <string name="fri_short">JUM</string>
+    <string name="sat_short">SAB</string>
+    <string name="sun_short">MIN</string>
+    <string name="today_is">Hari ini</string>
+    <string name="weekday">Hari kerja</string>
+    <string name="weekend">Akhir pekan</string>
+    <string name="delete_alarm">Hapus alarm</string>
+    <string name="on">Nyala</string>
+    <string name="off">Mati</string>
+    <string name="create_alarm">Buat Alarm</string>
+    <string name="repeat">Ulangi</string>
+    <string name="snoozeable">Dapat Ditunda</string>
+    <string name="alarm_label">Label alarm</string>
+    <string name="alarm_history">Riwayat alarm</string>
+    <string name="stopped">BERHENTI</string>
+    <string name="skip">TERLEWATKAN</string>
+    <string name="snoozed">TERTUNDA</string>
+    <string name="_5_mins">5 menit</string>
+    <string name="_10_mins">10 menit</string>
+    <string name="_15_mins">15 menit</string>
+    <string name="_20_mins">20 menit</string>
+    <string name="sorry">Maaf anda tidak bisa mengedit hari dari alarm ini</string>
+    <string name="pick_day_alarm">Pilih hari alarm anda</string>
+    <string name="cancel">Batalkan</string>
+
+</resources>

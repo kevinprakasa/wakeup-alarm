@@ -14,9 +14,8 @@
         android:layout_marginLeft="89dp"
         android:layout_marginTop="10dp"
         android:gravity="center"
-        android:text="WEEKDAYS"
         android:onClick="onDaysClicked"
-        />
+        android:text="@string/weekday" />
 
     <CheckBox
         android:id="@+id/weekendCheck"
@@ -29,7 +28,7 @@
         android:layout_marginRight="89dp"
         android:gravity="center"
         android:onClick="onDaysClicked"
-        android:text="WEEKEND" />
+        android:text="@string/weekend" />
 
     <CheckBox
         android:id="@+id/day3"
@@ -39,9 +38,9 @@
         android:layout_centerHorizontal="true"
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="132dp"
-        android:onClick="onDaysClicked"
         android:gravity="center"
-        android:text="WEDNESDAY" />
+        android:onClick="onDaysClicked"
+        android:text="@string/wed" />
 
     <CheckBox
         android:id="@+id/day1"
@@ -53,7 +52,7 @@
         android:layout_marginTop="50dp"
         android:gravity="center"
         android:onClick="onDaysClicked"
-        android:text="MONDAY" />
+        android:text="@string/mon" />
 
     <CheckBox
         android:id="@+id/day2"
@@ -61,58 +60,58 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:onClick="onDaysClicked"
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="89dp"
         android:gravity="center"
-        android:text="TUESDAY" />
+        android:onClick="onDaysClicked"
+        android:text="@string/tue" />
 
     <CheckBox
         android:id="@+id/day4"
         android:layout_width="match_parent"
-        android:onClick="onDaysClicked"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="175dp"
         android:gravity="center"
-        android:text="THURSDAY" />
+        android:onClick="onDaysClicked"
+        android:text="@string/thu" />
 
     <CheckBox
         android:id="@+id/day5"
         android:layout_width="match_parent"
-        android:onClick="onDaysClicked"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="215dp"
         android:gravity="center"
-        android:text="FRIDAY" />
+        android:onClick="onDaysClicked"
+        android:text="@string/fri" />
 
     <CheckBox
         android:id="@+id/day6"
         android:layout_width="match_parent"
-        android:onClick="onDaysClicked"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="255dp"
         android:gravity="center"
-        android:text="SATURDAY" />
+        android:onClick="onDaysClicked"
+        android:text="@string/sat" />
 
     <CheckBox
         android:id="@+id/day7"
         android:layout_width="match_parent"
-        android:onClick="onDaysClicked"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="296dp"
         android:gravity="center"
-        android:text="MONDAY" />
+        android:onClick="onDaysClicked"
+        android:text="@string/sun" />
 
 </RelativeLayout>

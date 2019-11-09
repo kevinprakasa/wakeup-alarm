@@ -15,7 +15,7 @@
             android:layout_marginTop="10dp"
             android:checked="true"
             android:gravity="center"
-            android:text="OFF" />
+            android:text="@string/off" />
 
         <RadioButton
             android:id="@+id/fiveMin"
@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:gravity="center"
-            android:text="5 mins" />
+            android:text="@string/_5_mins" />
 
         <RadioButton
             android:id="@+id/tenMin"
@@ -31,7 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:gravity="center"
-            android:text="10 mins" />
+            android:text="@string/_10_mins" />
 
         <RadioButton
             android:id="@+id/fifteenMin"
@@ -39,7 +39,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:gravity="center"
-            android:text="15 mins" />
+            android:text="@string/_15_mins" />
 
         <RadioButton
             android:id="@+id/twentyMin"
@@ -47,6 +47,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:gravity="center"
-            android:text="20 mins" />
+            android:text="@string/_20_mins" />
     </RadioGroup>
 </RelativeLayout>

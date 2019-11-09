@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context="id.ac.ui.cs.mobileprogramming.kevinprakasa.wakeup.MainActivity">
 
     <TextView
         android:id="@+id/textView3"
@@ -42,49 +42,49 @@
             android:layout_width="58dp"
             android:layout_height="35dp"
             android:onClick="onButtonDaysClicked"
-            android:text="MON" />
+            android:text="@string/mon_short" />
 
         <Button
             android:id="@+id/tueButton"
             android:layout_width="57dp"
             android:layout_height="35dp"
             android:onClick="onButtonDaysClicked"
-            android:text="TUE" />
+            android:text="@string/tue_short" />
 
         <Button
             android:id="@+id/wedButton"
             android:layout_width="58dp"
             android:layout_height="35dp"
             android:onClick="onButtonDaysClicked"
-            android:text="WED" />
+            android:text="@string/wed_short" />
 
         <Button
             android:id="@+id/thuButton"
             android:layout_width="57dp"
             android:layout_height="35dp"
             android:onClick="onButtonDaysClicked"
-            android:text="THU" />
+            android:text="@string/thu_short" />
 
         <Button
             android:id="@+id/friButton"
             android:layout_width="58dp"
             android:layout_height="35dp"
             android:onClick="onButtonDaysClicked"
-            android:text="FRI" />
+            android:text="@string/fri_short" />
 
         <Button
             android:id="@+id/satButton"
             android:layout_width="58dp"
             android:layout_height="35dp"
             android:onClick="onButtonDaysClicked"
-            android:text="SAT" />
+            android:text="@string/sat_short" />
 
         <Button
             android:id="@+id/sunButton"
             android:layout_width="57dp"
             android:layout_height="35dp"
             android:onClick="onButtonDaysClicked"
-            android:text="SUN " />
+            android:text="@string/sun_short" />
     </LinearLayout>
 
     <LinearLayout
@@ -125,13 +125,13 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/alarmRecycleView"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="12dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dayPicked"
+        app:layout_constraintVertical_bias="0.0"
         tools:listitem="@layout/alarm_item" />
 
     <TextView
@@ -157,28 +157,5 @@
         app:fontFamily="@font/montserrat"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_gravity="center"
-        tools:layout_editor_absoluteX="520dp"
-        tools:layout_editor_absoluteY="26dp">
-
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="144dp"
-            android:layout_marginRight="144dp"
-            android:layout_gravity="center"
-            android:foregroundGravity="center"
-            android:gravity="center"
-            android:text="Wake Up!"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:fontFamily="@font/montserrat" />
-    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
