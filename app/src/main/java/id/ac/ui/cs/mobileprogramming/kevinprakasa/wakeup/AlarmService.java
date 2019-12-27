@@ -7,15 +7,21 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
+import android.os.Handler;
 import android.util.Log;
 
 import androidx.core.app.NotificationCompat;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class AlarmService extends IntentService {
     private NotificationManager alarmNotificationManager;
-    private final String CHANNEL_NAME = "ALARM_CHANNEL_NAME";
-    private final String CHANNEL_ID = "ALARM_CHANNEL_ID";
-    private final String CHANNEL_DESC = "ALARM_CHANNEL_DESC";
+    public final String CHANNEL_NAME = "ALARM_CHANNEL_NAME";
+    public final String CHANNEL_ID = "ALARM_CHANNEL_ID";
+    public final String CHANNEL_DESC = "ALARM_CHANNEL_DESC";
+
+    Handler handler;
 
     public AlarmService() {
         super("AlarmService");
@@ -27,22 +33,34 @@ public class AlarmService extends IntentService {
     }
 
     private void sendNotification(String msg) {
+        final int[] counter = {0};
         createNotificationChannel();
         alarmNotificationManager = (NotificationManager) this
                 .getSystemService(Context.NOTIFICATION_SERVICE);
 
             PendingIntent contentIntent = PendingIntent.getActivity(this, 0,
                 new Intent(this, MainActivity.class), 0);
-
-        NotificationCompat.Builder alarmNotificationBuilder = new NotificationCompat.Builder(
+        final NotificationCompat.Builder alarmNotificationBuilder = new NotificationCompat.Builder(
                 this).setContentTitle("Alarm").setSmallIcon(R.mipmap.ic_launcher_foreground)
-                .setStyle(new NotificationCompat.BigTextStyle().bigText(msg))
-                .setContentText(msg)
+                .setContentTitle("Wakeup!")
+                .setContentText(String.format("This notification has shown for %d seconds", counter[0]))
                 .setChannelId(CHANNEL_ID);
 
 
         alarmNotificationBuilder.setContentIntent(contentIntent);
         alarmNotificationManager.notify(1, alarmNotificationBuilder.build());
+        // create a counter for a notification
+        handler = new Handler();
+        Timer T=new Timer();
+        T.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                counter[0]++;
+                Log.d("COUNTER", String.valueOf(counter[0]));
+                alarmNotificationBuilder.setContentText(String.format("This notification has shown for %d seconds", counter[0]));
+                alarmNotificationManager.notify(1,alarmNotificationBuilder.build());
+            }
+        }, 0, 1000);
         Log.d("AlarmService", "Notification sent.");
     }
 

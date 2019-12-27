@@ -1,20 +1,27 @@
 package id.ac.ui.cs.mobileprogramming.kevinprakasa.wakeup;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.ContentValues;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.lifecycle.ViewModelProviders;
 
 import java.util.Arrays;
@@ -29,10 +36,12 @@ import id.ac.ui.cs.mobileprogramming.kevinprakasa.wakeup.Room.Alarm;
 import id.ac.ui.cs.mobileprogramming.kevinprakasa.wakeup.ViewModel.AlarmViewModel;
 
 public class CreateAlarmActivity extends AppCompatActivity implements DayPickerDialog.DaysPickerDialogListener, SnoozableDialog.SnoozeableDialogListener {
+    private static final int MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE = 123;
     AlarmManager alarmManager;
     DayPickerDialog dayPickerDialog;
     SnoozableDialog snoozableDialog;
 
+    public static final int PICKFILE_RESULT_CODE = 1;
     public static String ALARM_ID = "create_alarm_id";
     public static String ALARM_LABEL = "create_alarm_label";
     public static String ALARM_TIME = "create_alarm_time";
@@ -58,6 +67,16 @@ public class CreateAlarmActivity extends AppCompatActivity implements DayPickerD
 
     //alarm label
     private TextView alarmLabel;
+    private String filePath = null;
+
+    // music picker
+    private Button musicPicker;
+
+    // Used to load the 'native-lib' library on application startup.
+    static {
+        System.loadLibrary("native-lib");
+    }
+
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,6 +94,7 @@ public class CreateAlarmActivity extends AppCompatActivity implements DayPickerD
         daysPicker = findViewById(R.id.daysPicker);
         snoozeAbleButton= findViewById(R.id.snoozeableButton);
         submitAlarmButton = findViewById(R.id.okButtonAlarm);
+        musicPicker = findViewById(R.id.musicPicker);
 
         daysPicker.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,6 +113,39 @@ public class CreateAlarmActivity extends AppCompatActivity implements DayPickerD
             public void onClick(View view) {
                 onSubmitAlarm();
                 finish();
+            }
+        });
+        musicPicker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.READ_EXTERNAL_STORAGE)
+                        != PackageManager.PERMISSION_GRANTED) {
+                    // Permission is not granted
+                    if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE)
+                            != PackageManager.PERMISSION_GRANTED) {
+
+                        // Should we show an explanation?
+                        if (shouldShowRequestPermissionRationale(
+                                Manifest.permission.READ_EXTERNAL_STORAGE)) {
+                            // Explain to the user why we need to read the contacts
+                        }
+
+                        requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                                MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE);
+
+                        // MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE is an
+                        // app-defined int constant that should be quite unique
+
+                        return;
+                    }
+                }
+                else {
+                    Intent chooseFile = new Intent(Intent.ACTION_PICK,
+                            android.provider.MediaStore.Audio.Media.EXTERNAL_CONTENT_URI);
+                    chooseFile = Intent.createChooser(chooseFile, "Choose a file");
+                    startActivityForResult(chooseFile, PICKFILE_RESULT_CODE);
+                }
+
             }
         });
 
@@ -119,6 +172,77 @@ public class CreateAlarmActivity extends AppCompatActivity implements DayPickerD
                     Toast.makeText(CreateAlarmActivity.this, getResources().getString(R.string.sorry), Toast.LENGTH_SHORT).show();
                 }
             });
+        }
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    public void onPlusMinusMinuteClicked(View view) {
+        int addition;
+        switch (view.getId()) {
+            case R.id.plusOne:
+                addition = 1;
+                break;
+            case R.id.plusFive:
+                addition = 5;
+                break;
+            case R.id.plusTen:
+                addition = 10;
+                break;
+            case R.id.minusOne:
+                addition = -1;
+                break;
+            case R.id.minusFive:
+                addition = -5;
+                break;
+            case R.id.minusTen:
+                addition = -10;
+                break;
+            default:
+                addition = 0;
+                break;
+        }
+        int calculatedMinute = addition(alarmTimePicker.getMinute(),addition);
+        if (calculatedMinute > 59) {
+            calculatedMinute -= 60;
+            alarmTimePicker.setHour(alarmTimePicker.getHour()+1);
+        } else if (calculatedMinute < 0) {
+            calculatedMinute += 60;
+            alarmTimePicker.setHour(alarmTimePicker.getHour()-1);
+        }
+        alarmTimePicker.setMinute(calculatedMinute);
+
+
+    }
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           String[] permissions, int[] grantResults) {
+        switch (requestCode) {
+            case MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE: {
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    // permission was granted, yay! Do the
+                    // contacts-related task you need to do.
+                    Intent chooseFile = new Intent(Intent.ACTION_PICK,
+                            android.provider.MediaStore.Audio.Media.EXTERNAL_CONTENT_URI);
+                    chooseFile = Intent.createChooser(chooseFile, "Choose a file");
+                    startActivityForResult(chooseFile, PICKFILE_RESULT_CODE);
+                }
+                return;
+            }
+        }
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        switch (requestCode) {
+            case PICKFILE_RESULT_CODE:
+                if (resultCode == Activity.RESULT_OK) {
+                    if ((data != null) && (data.getData() != null)){
+                        Uri fileUri = data.getData();
+                        filePath = fileUri.toString();
+                    }
+                }
+                break;
         }
     }
 
@@ -178,7 +302,7 @@ public class CreateAlarmActivity extends AppCompatActivity implements DayPickerD
         }
 
         String label = String.valueOf(alarmLabel.getText());
-        Alarm alarm = new Alarm(calendar.getTimeInMillis(), choosedSnooze, "some ringtone", dayNum, label);
+        Alarm alarm = new Alarm(calendar.getTimeInMillis(), choosedSnooze, filePath, dayNum, label);
         long alarmId;
         // check if in edit mode alarm
         if (intent.hasExtra(ALARM_ID)) {
@@ -205,8 +329,9 @@ public class CreateAlarmActivity extends AppCompatActivity implements DayPickerD
         extras.putString(AlarmReceiverActivity.RECEIVER_ALARM_LABEL, alarm.getLabel());
         extras.putInt(AlarmReceiverActivity.RECEIVER_ALARM_DAY, alarm.getDay());
         extras.putInt(AlarmReceiverActivity.RECEIVER_ALARM_ID, alarm.getId());
+        extras.putString(AlarmReceiverActivity.RECEIVER_ALARM_RINGTONE, alarm.getRingtone());
         intent.putExtras(extras);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
         PendingIntent pendingIntent = PendingIntent.getActivity(this,
                 (int)alarmId, intent, PendingIntent.FLAG_CANCEL_CURRENT);
 
@@ -314,4 +439,10 @@ public class CreateAlarmActivity extends AppCompatActivity implements DayPickerD
         }
         snoozeAbleButton.setText(snoozeMinText);
     }
+
+    /**
+     * A native method that is implemented by the 'native-lib' native library,
+     * which is packaged with this application.
+     */
+    public native int addition(int a,int b);
 }
