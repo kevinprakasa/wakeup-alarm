@@ -175,6 +175,9 @@ public class CreateAlarmActivity extends AppCompatActivity implements DayPickerD
         }
     }
 
+    /***
+    This method handles when -10...+10 minutes modify button is clicked
+    ***/
     @RequiresApi(api = Build.VERSION_CODES.M)
     public void onPlusMinusMinuteClicked(View view) {
         int addition;
