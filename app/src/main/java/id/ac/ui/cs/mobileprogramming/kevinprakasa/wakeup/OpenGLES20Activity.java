@@ -18,11 +18,11 @@ public class OpenGLES20Activity extends
         // as the ContentView for this Activity.
         gLView = new MyGLSurfaceView(this);
         setContentView(gLView);
-        /****** Create Thread that will sleep for 5 seconds****/
+        /****** Create Thread that will sleep for 2 seconds****/
         Thread background = new Thread() {
             public void run() {
                 try {
-                    // Thread will sleep for 5 seconds
+                    // Thread will sleep for 2 seconds
                     sleep(2*1000);
 
                     // After 5 seconds redirect to another intent
